@@ -1,35 +1,3 @@
-Lizenz · CLOSED · NO‑CLONE · BUSINESS (nokey)
-Dieses Projekt ist vollständig proprietär.
-
-CLOSED
-Der gesamte Code, alle Dateien, Module, Axiome, Vektoren und Engines sind geschlossen.
-Keine Weitergabe, kein Fork, kein Clone, keine Modifikation.
-
-NO‑CLONE (nokey)
-Dieses Repository darf NICHT geklont, geforkt oder gespiegelt werden.
-Jegliche Vervielfältigung ist untersagt.
-
-BUSINESS‑LIZENZ
-Kommerzielle Nutzung ist möglich, aber nur mit schriftlicher Genehmigung von iki1uc.
-
-Erlaubt:
-
-Nutzung in eigenen Produkten
-
-Verkauf von Produkten, die die Engine enthalten
-
-Nicht erlaubt:
-
-Veröffentlichung des Quellcodes
-
-Weiterverkauf der Engine selbst
-
-Entfernen des Brandings „iki1uc wieimmer“
-
-Branding
-„iki1uc wieimmer“ muss bestehen bleiben.
-
-Code
 <!-- nokey: cloning, forking, mirroring prohibited -->
 [2our] · Puzzle‑Dreieck · Layer 0
 kein Anfang
