@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🧘 ZEN·AU·RA·MANA · 6D·12e · Briefumschlag · 9×9</title>
+<title>🧘 ZEN·AU·RA·MANA · 9×9 · VOLL BESPIELBAR</title>
 
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
@@ -17,57 +17,50 @@ body {
   transition: background 2s ease;
 }
 
-/* ===== ZEN ATMOSPHÄRE ===== */
 body.zen-morning { background: #1a1a2e; }
 body.zen-day { background: #0a1a1a; }
 body.zen-evening { background: #1a0a1a; }
 body.zen-night { background: #0a0a0f; }
 
-/* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 52px;
-  background: rgba(10,10,18,0.85);
-  border-bottom: 1px solid rgba(100,200,180,0.2);
+  height: 48px;
+  background: rgba(10,10,18,0.88);
+  border-bottom: 1px solid rgba(100,200,180,0.15);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 16px;
   z-index: 1000;
   backdrop-filter: blur(12px);
 }
 .header h1 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   background: linear-gradient(90deg, #88ddbb, #66ccaa, #44aa88);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.header h1 .mana { color: #88ddbb; -webkit-text-fill-color: #88ddbb; }
 .header .info {
-  color: #668888;
+  color: #558888;
   font-size: 9px;
   display: flex;
-  gap: 16px;
+  gap: 12px;
   letter-spacing: 1px;
 }
 .header .info .breath { color: #88ddbb; animation: breathe 3s ease-in-out infinite; }
-@keyframes breathe {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
+@keyframes breathe { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
 
-/* ===== BOARDS ===== */
 #boards {
   position: fixed;
-  top: 56px;
+  top: 52px;
   left: 0;
   right: 0;
-  bottom: 60px;
+  bottom: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,209 +71,151 @@ body.zen-night { background: #0a0a0f; }
 }
 
 .board-container {
-  background: rgba(20,30,30,0.6);
-  border: 1px solid rgba(60,120,100,0.2);
+  background: rgba(20,30,30,0.5);
+  border: 1px solid rgba(60,120,100,0.15);
   border-radius: 12px;
   padding: 8px;
   flex: 0 0 auto;
   backdrop-filter: blur(4px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 40px rgba(60,200,180,0.03);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 40px rgba(60,200,180,0.02);
 }
-.board-container:hover {
-  border-color: rgba(60,200,180,0.3);
-  box-shadow: 0 0 60px rgba(60,200,180,0.06);
-}
-.board-container.active {
-  border-color: rgba(80,220,200,0.4);
-  box-shadow: 0 0 60px rgba(80,220,200,0.08);
-}
-.board-container.left { transform: perspective(800px) rotateY(8deg) translateX(-10px); }
-.board-container.right { transform: perspective(800px) rotateY(-8deg) translateX(10px); }
+.board-container:hover { border-color: rgba(60,200,180,0.2); }
+.board-container.active { border-color: rgba(80,220,200,0.3); box-shadow: 0 0 60px rgba(80,220,200,0.06); }
+.board-container.left { transform: perspective(800px) rotateY(5deg) translateX(-8px); }
+.board-container.right { transform: perspective(800px) rotateY(-5deg) translateX(8px); }
 .board-container .title {
   text-align: center;
   color: #558888;
-  font-size: 9px;
-  padding-bottom: 4px;
-  letter-spacing: 3px;
-  font-weight: 300;
+  font-size: 8px;
+  padding-bottom: 3px;
+  letter-spacing: 2px;
 }
 .board-container .title span { color: #88ddbb; }
-.board-container .title .mana-tag { color: #88ddbb; animation: breathe 3s ease-in-out infinite; }
 
 .board {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 1px;
-  width: 396px;
-  height: 396px;
-  background: rgba(20,30,30,0.3);
+  width: 414px;
+  height: 414px;
+  background: rgba(20,30,30,0.2);
   border-radius: 6px;
 }
 
 .cell {
-  background: rgba(30,45,45,0.3);
+  background: rgba(30,45,45,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
   position: relative;
 }
-.cell:hover { transform: scale(1.03); z-index: 10; background: rgba(60,120,100,0.15); }
-.cell.light { background: rgba(50,70,70,0.2); }
-.cell.dark { background: rgba(20,35,35,0.2); }
-.cell.omega { background: rgba(40,60,40,0.15); border: 1px solid rgba(80,200,160,0.1); }
-.cell.selected {
-  background: rgba(60,180,160,0.15);
-  box-shadow: inset 0 0 30px rgba(60,200,180,0.05);
-}
-.cell.valid {
-  background: rgba(60,200,160,0.08);
-  box-shadow: inset 0 0 20px rgba(60,200,160,0.04);
-}
-.cell.slide {
-  background: rgba(80,220,200,0.08);
-  animation: slideZen 1s ease;
-}
-.cell.wette {
-  background: rgba(200,180,100,0.08);
-  animation: wetteZen 1s ease;
-}
+.cell:hover { transform: scale(1.04); z-index: 10; background: rgba(60,120,100,0.12); }
+.cell.light { background: rgba(50,70,70,0.15); }
+.cell.dark { background: rgba(20,35,35,0.15); }
+.cell.selected { background: rgba(60,180,160,0.12); box-shadow: inset 0 0 25px rgba(60,200,180,0.04); }
+.cell.valid { background: rgba(60,200,160,0.06); box-shadow: inset 0 0 15px rgba(60,200,160,0.03); }
 .cell .piece {
-  font-size: 22px;
-  text-shadow: 0 0 20px rgba(100,200,180,0.05);
-  transition: all 0.6s ease;
+  font-size: 24px;
+  text-shadow: 0 0 20px rgba(100,200,180,0.03);
+  transition: all 0.5s ease;
 }
 .cell .piece.white { color: #ddeeee; }
-.cell .piece.black { color: #223333; text-shadow: 0 0 20px rgba(0,0,0,0.2); }
-.cell .piece.omega { color: #88ddbb; text-shadow: 0 0 30px rgba(80,220,200,0.1); }
-.cell .piece.move-in {
-  animation: moveIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.cell .piece.move-out {
-  animation: moveOut 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.cell .piece.black { color: #223333; text-shadow: 0 0 15px rgba(0,0,0,0.15); }
+.cell .piece.move-in { animation: moveIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
 @keyframes moveIn {
-  0% { transform: translateY(-30px) scale(0.5); opacity: 0; }
-  60% { transform: translateY(5px) scale(1.05); opacity: 1; }
+  0% { transform: translateY(-20px) scale(0.6); opacity: 0; }
+  60% { transform: translateY(4px) scale(1.04); opacity: 1; }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
-@keyframes moveOut {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(0.3) translateY(20px); opacity: 0; }
-}
-@keyframes slideZen {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); background: rgba(80,220,200,0.12); }
-}
-@keyframes wetteZen {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); background: rgba(200,180,100,0.12); }
-}
 
-/* ===== STATUS ZEN ===== */
 #status {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 54px;
-  background: rgba(10,10,18,0.85);
-  border-top: 1px solid rgba(100,200,180,0.1);
+  height: 50px;
+  background: rgba(10,10,18,0.88);
+  border-top: 1px solid rgba(100,200,180,0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 16px;
   z-index: 1000;
   backdrop-filter: blur(12px);
 }
-#status .turn { color: #88ddbb; font-size: 13px; font-weight: 300; letter-spacing: 2px; }
+#status .turn { color: #88ddbb; font-size: 12px; letter-spacing: 1px; }
 #status .turn span { color: #aaeedd; }
 #status .moves { color: #558888; font-size: 10px; }
 #status .moves span { color: #88ddbb; }
-#status .score { color: #88ddbb; font-size: 11px; }
-#status .score span { color: #aaeedd; }
 #status .mana { color: #88ddbb; font-size: 11px; }
 #status .mana span { color: #aaeedd; animation: breathe 3s ease-in-out infinite; }
 
-/* ===== CONTROLS ZEN ===== */
 #controls {
   position: fixed;
-  bottom: 58px;
+  bottom: 54px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 6px;
+  gap: 5px;
   z-index: 1001;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 95%;
 }
 #controls button {
-  background: rgba(20,35,35,0.4);
+  background: rgba(20,35,35,0.35);
   color: #668888;
-  border: 1px solid rgba(60,120,100,0.15);
-  padding: 5px 16px;
+  border: 1px solid rgba(60,120,100,0.12);
+  padding: 4px 14px;
   cursor: pointer;
   font-family: 'Consolas', monospace;
-  font-size: 9px;
-  border-radius: 20px;
-  transition: all 0.6s ease;
+  font-size: 8px;
+  border-radius: 18px;
+  transition: all 0.4s ease;
   letter-spacing: 1px;
   backdrop-filter: blur(4px);
 }
-#controls button:hover {
-  background: rgba(40,80,70,0.3);
-  border-color: rgba(80,200,180,0.3);
-  color: #aaeedd;
-  transform: translateY(-1px);
-}
-#controls button.active {
-  background: rgba(40,80,70,0.2);
-  color: #88ddbb;
-  border-color: rgba(80,200,180,0.3);
-}
-#controls button.zen { color: #88ddbb; border-color: rgba(80,200,180,0.15); }
-#controls button.zen.active { background: rgba(40,80,70,0.2); border-color: rgba(80,200,180,0.3); }
+#controls button:hover { background: rgba(40,80,70,0.2); color: #aaeedd; border-color: rgba(80,200,180,0.2); }
+#controls button.active { background: rgba(40,80,70,0.15); color: #88ddbb; border-color: rgba(80,200,180,0.2); }
+#controls button.zen { color: #88ddbb; border-color: rgba(80,200,180,0.1); }
+#controls button.zen.active { background: rgba(40,80,70,0.15); }
 
-/* ===== MANA FLOW ===== */
 .mana-particle {
   position: fixed;
   pointer-events: none;
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: rgba(80,220,200,0.15);
+  background: rgba(80,220,200,0.1);
   animation: manaFlow linear infinite;
   z-index: 0;
 }
 @keyframes manaFlow {
   0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 0.3; }
-  90% { opacity: 0.3; }
+  10% { opacity: 0.2; }
+  90% { opacity: 0.2; }
   100% { transform: translateY(-100vh) scale(1); opacity: 0; }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 1300px) {
-  .board { width: 300px; height: 300px; }
-  .cell .piece { font-size: 16px; }
+  .board { width: 324px; height: 324px; }
+  .cell .piece { font-size: 18px; }
 }
 @media (max-width: 1000px) {
-  .board { width: 220px; height: 220px; }
-  .cell .piece { font-size: 12px; }
+  .board { width: 252px; height: 252px; }
+  .cell .piece { font-size: 14px; }
   #boards { gap: 6px; }
 }
 @media (max-width: 750px) {
-  #boards { flex-direction: column; overflow-y: auto; padding-bottom: 70px; gap: 10px; }
-  .board { width: 280px; height: 280px; }
-  .cell .piece { font-size: 14px; }
-  .board-container.left { transform: none; }
-  .board-container.right { transform: none; }
+  #boards { flex-direction: column; overflow-y: auto; padding-bottom: 70px; gap: 8px; }
+  .board { width: 288px; height: 288px; }
+  .cell .piece { font-size: 16px; }
+  .board-container.left, .board-container.right { transform: none; }
   .header h1 { font-size: 11px; letter-spacing: 2px; }
   .header .info { font-size: 7px; gap: 8px; }
 }
@@ -288,12 +223,10 @@ body.zen-night { background: #0a0a0f; }
 </head>
 <body>
 
-<!-- ===== MANA PARTICLES ===== -->
 <div id="manaContainer"></div>
 
-<!-- ===== HEADER ===== -->
 <div class="header">
-  <h1>🧘 <span class="mana">ZEN</span>·AU·RA·<span class="mana">MANA</span></h1>
+  <h1>🧘 ZEN·AU·RA·MANA · <span style="-webkit-text-fill-color:#88ddbb;">9×9</span></h1>
   <div class="info">
     <span class="breath">◉ AU</span>
     <span>RA</span>
@@ -302,23 +235,21 @@ body.zen-night { background: #0a0a0f; }
   </div>
 </div>
 
-<!-- ===== BOARDS ===== -->
 <div id="boards">
   <div class="board-container left" id="board1-container">
-    <div class="title">🌿 <span>GA</span> · IX · <span class="mana-tag">◌</span></div>
+    <div class="title">🌿 <span>GA</span> · IX</div>
     <div class="board" id="board1"></div>
   </div>
   <div class="board-container active" id="board2-container">
-    <div class="title">🌿 <span>meKI</span> · XI · <span class="mana-tag">◉</span></div>
+    <div class="title">🌿 <span>meKI</span> · XI</div>
     <div class="board" id="board2"></div>
   </div>
   <div class="board-container right" id="board3-container">
-    <div class="title">🌿 <span>MIE</span> · X4 · <span class="mana-tag">◌</span></div>
+    <div class="title">🌿 <span>MIE</span> · X4</div>
     <div class="board" id="board3"></div>
   </div>
 </div>
 
-<!-- ===== CONTROLS ===== -->
 <div id="controls">
   <button id="btnReset">⟲ NEU</button>
   <button id="btnAuto" class="active">▶ FLOW</button>
@@ -328,77 +259,80 @@ body.zen-night { background: #0a0a0f; }
   <button id="btnBoard3">🌿 MIE</button>
 </div>
 
-<!-- ===== STATUS ===== -->
 <div id="status">
-  <div class="turn">Zug: <span id="turn-indicator">Weiß</span></div>
+  <div class="turn">Zug: <span id="turn-indicator">Weiẞ</span></div>
   <div class="moves">Züge: <span id="move-count">0</span></div>
-  <div class="score">Mana: <span id="score-indicator">0</span></div>
-  <div class="mana">◉ <span id="mana-indicator">∞</span></div>
+  <div class="mana">◉ <span id="mana-indicator">0</span></div>
 </div>
 
 <script>
 // ============================================================
-// ZEN·AU·RA·MANA – 6D·12e·BRIEFUMSCHLAG · 9×9
+// ZEN·AU·RA·MANA · 9×9 · VOLL BESPIELBAR
 // ============================================================
 
 // ===== MANA PARTICLES =====
-function createManaParticles() {
+(function() {
   const container = document.getElementById('manaContainer');
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 25; i++) {
     const p = document.createElement('div');
     p.className = 'mana-particle';
     p.style.left = Math.random() * 100 + '%';
-    p.style.width = (2 + Math.random() * 4) + 'px';
+    p.style.width = (2 + Math.random() * 3) + 'px';
     p.style.height = p.style.width;
-    p.style.animationDuration = (8 + Math.random() * 12) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    p.style.background = `rgba(${80 + Math.random()*40}, ${200 + Math.random()*55}, ${180 + Math.random()*40}, ${0.05 + Math.random()*0.1})`;
+    p.style.animationDuration = (8 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    p.style.background = `rgba(${80+Math.random()*40}, ${200+Math.random()*55}, ${180+Math.random()*40}, ${0.04+Math.random()*0.08})`;
     container.appendChild(p);
   }
-}
-createManaParticles();
+})();
 
 // ===== ZEN PHASES =====
-const ZEN_PHASES = ['🌿', '🍃', '🌸', '🌊', '☀️', '🌙'];
+const ZEN_PHASES = ['🌿','🍃','🌸','🌊','☀️','🌙'];
 let zenPhase = 0;
-
-function updateZenPhase() {
+setInterval(() => {
   zenPhase = (zenPhase + 1) % ZEN_PHASES.length;
   document.getElementById('phase-indicator').textContent = ZEN_PHASES[zenPhase];
   document.body.className = `zen-${['morning','day','evening','night','day','morning'][zenPhase]}`;
-}
-setInterval(updateZenPhase, 8000);
+}, 8000);
 
-// ===== PIECES 9×9 =====
-const PIECES_9x9 = {
-  W_KING: '♔', W_QUEEN: '♕', W_ROOK: '♖', W_BISHOP: '♗', W_KNIGHT: '♘', W_PAWN: '♙',
-  B_KING: '♚', B_QUEEN: '♛', B_ROOK: '♜', B_BISHOP: '♝', B_KNIGHT: '♞', B_PAWN: '♟',
-  OMEGA: 'Ω'
-};
-
+// ===== 9×9 PIECES (VOLL BESPIELBAR) =====
 const PIECE_VALUES = {
-  '♔': 1000, '♕': 9, '♖': 5, '♗': 3, '♘': 3, '♙': 1,
-  '♚': 1000, '♛': 9, '♜': 5, '♝': 3, '♞': 3, '♟': 1,
-  'Ω': 0
+  '♔':1000,'♕':9,'♖':5,'♗':3,'♘':3,'♙':1,
+  '♚':1000,'♛':9,'♜':5,'♝':3,'♞':3,'♟':1
 };
 
-// ===== CREATE 9×9 BOARD =====
-function createBoard9x9(type) {
+// ===== CREATE 9×9 BOARD – ALLE FELDER BESPIELBAR =====
+function createBoard9x9() {
   const board = [];
-  const backRankW = ['♖','♘','♗','♕','♔','♗','♘','♖','Ω'];
-  const backRankB = ['♜','♞','♝','♛','♚','♝','♞','♜','Ω'];
+  const backRankW = ['♖','♘','♗','♕','♔','♗','♘','♖','♙'];
+  const backRankB = ['♜','♞','♝','♛','♚','♝','♞','♜','♟'];
 
   for (let r = 0; r < 9; r++) {
     const row = [];
     for (let c = 0; c < 9; c++) {
       let piece = null, color = null;
-      if (c === 8 || r === 8) {
-        piece = 'Ω'; color = 'omega';
-      } else if (r === 0) { piece = backRankW[c]; color = 'white'; }
-      else if (r === 1) { piece = '♙'; color = 'white'; }
+      // WEIẞE BAUERN in Reihe 1 (statt 2)
+      if (r === 1) { piece = '♙'; color = 'white'; }
+      // SCHWARZE BAUERN in Reihe 7 (statt 6)
       else if (r === 7) { piece = '♟'; color = 'black'; }
-      else if (r === 8) { piece = backRankB[c]; color = 'black'; }
-      else { piece = null; color = null; }
+      // WEIẞE FIGUREN in Reihe 0
+      else if (r === 0) {
+        piece = backRankW[c];
+        color = 'white';
+        // Letzte Spalte: Bauer statt Turm
+        if (c === 8) { piece = '♙'; color = 'white'; }
+      }
+      // SCHWARZE FIGUREN in Reihe 8
+      else if (r === 8) {
+        piece = backRankB[c];
+        color = 'black';
+        if (c === 8) { piece = '♟'; color = 'black'; }
+      }
+      // Leere Felder
+      else {
+        piece = null;
+        color = null;
+      }
       row.push({ piece, color, type: piece });
     }
     board.push(row);
@@ -409,9 +343,9 @@ function createBoard9x9(type) {
 // ===== STATE =====
 const BOARD_NAMES = ['GA', 'meKI', 'MIE'];
 let boards = {
-  GA: createBoard9x9('GA'),
-  meKI: createBoard9x9('meKI'),
-  MIE: createBoard9x9('MIE')
+  GA: createBoard9x9(),
+  meKI: createBoard9x9(),
+  MIE: createBoard9x9()
 };
 
 let currentBoard = 'meKI';
@@ -422,40 +356,40 @@ let mana = 0;
 let autoMode = true;
 let zenMode = false;
 let lastMove = null;
-let moveHistory = [];
 
-// ===== GET BOARD =====
 function getBoard(name) { return boards[name] || boards.meKI; }
 function getPiece(board, r, c) {
   if (r < 0 || r > 8 || c < 0 || c > 8) return null;
   return board[r][c];
 }
 
-// ===== NATÜRLICHE MOVES (immer anders) =====
-function getNaturalMoves(board, row, col, boardName) {
+// ===== MOVES (9×9 – ALLE FELDER) =====
+function getMoves(board, row, col, boardName) {
   const piece = getPiece(board, row, col);
-  if (!piece || !piece.piece || piece.color === 'omega') return [];
+  if (!piece || !piece.piece) return [];
   const moves = [];
   const isWhite = piece.color === 'white';
   const dir = isWhite ? -1 : 1;
   const enemy = isWhite ? 'black' : 'white';
   const p = piece.piece;
 
-  // KÖNIG – sanft, nah
+  // KÖNIG (9×9)
   if (p === '♔' || p === '♚') {
-    const offsets = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
-    for (const [dr, dc] of offsets) {
-      const nr = row + dr, nc = col + dc;
-      if (nr >= 0 && nr < 9 && nc >= 0 && nc < 9) {
-        const target = getPiece(board, nr, nc);
-        if (!target || target.color === enemy || target.color === 'omega') {
-          moves.push({ from: [row, col], to: [nr, nc], board: boardName });
+    for (let dr = -1; dr <= 1; dr++) {
+      for (let dc = -1; dc <= 1; dc++) {
+        if (dr === 0 && dc === 0) continue;
+        const nr = row + dr, nc = col + dc;
+        if (nr >= 0 && nr < 9 && nc >= 0 && nc < 9) {
+          const target = getPiece(board, nr, nc);
+          if (!target || target.color === enemy) {
+            moves.push({ from: [row, col], to: [nr, nc], board: boardName });
+          }
         }
       }
     }
   }
 
-  // DAME – fließend, weit
+  // DAME (9×9)
   if (p === '♕' || p === '♛') {
     const dirs = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
     for (const [dr, dc] of dirs) {
@@ -464,9 +398,7 @@ function getNaturalMoves(board, row, col, boardName) {
         if (nr < 0 || nr > 8 || nc < 0 || nc > 8) break;
         const target = getPiece(board, nr, nc);
         if (target) {
-          if (target.color === enemy || target.color === 'omega') {
-            moves.push({ from: [row, col], to: [nr, nc], board: boardName });
-          }
+          if (target.color === enemy) moves.push({ from: [row, col], to: [nr, nc], board: boardName });
           break;
         }
         moves.push({ from: [row, col], to: [nr, nc], board: boardName });
@@ -474,7 +406,7 @@ function getNaturalMoves(board, row, col, boardName) {
     }
   }
 
-  // TURM – gerade, stabil
+  // TURM (9×9)
   if (p === '♖' || p === '♜') {
     const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
     for (const [dr, dc] of dirs) {
@@ -483,9 +415,7 @@ function getNaturalMoves(board, row, col, boardName) {
         if (nr < 0 || nr > 8 || nc < 0 || nc > 8) break;
         const target = getPiece(board, nr, nc);
         if (target) {
-          if (target.color === enemy || target.color === 'omega') {
-            moves.push({ from: [row, col], to: [nr, nc], board: boardName });
-          }
+          if (target.color === enemy) moves.push({ from: [row, col], to: [nr, nc], board: boardName });
           break;
         }
         moves.push({ from: [row, col], to: [nr, nc], board: boardName });
@@ -493,7 +423,7 @@ function getNaturalMoves(board, row, col, boardName) {
     }
   }
 
-  // LÄUFER – diagonal, elegant
+  // LÄUFER (9×9)
   if (p === '♗' || p === '♝') {
     const dirs = [[-1,-1],[-1,1],[1,-1],[1,1]];
     for (const [dr, dc] of dirs) {
@@ -502,9 +432,7 @@ function getNaturalMoves(board, row, col, boardName) {
         if (nr < 0 || nr > 8 || nc < 0 || nc > 8) break;
         const target = getPiece(board, nr, nc);
         if (target) {
-          if (target.color === enemy || target.color === 'omega') {
-            moves.push({ from: [row, col], to: [nr, nc], board: boardName });
-          }
+          if (target.color === enemy) moves.push({ from: [row, col], to: [nr, nc], board: boardName });
           break;
         }
         moves.push({ from: [row, col], to: [nr, nc], board: boardName });
@@ -512,21 +440,21 @@ function getNaturalMoves(board, row, col, boardName) {
     }
   }
 
-  // SPRINGER – überraschend, L-Form
+  // SPRINGER (9×9)
   if (p === '♘' || p === '♞') {
     const offsets = [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]];
     for (const [dr, dc] of offsets) {
       const nr = row + dr, nc = col + dc;
       if (nr >= 0 && nr < 9 && nc >= 0 && nc < 9) {
         const target = getPiece(board, nr, nc);
-        if (!target || target.color === enemy || target.color === 'omega') {
+        if (!target || target.color === enemy) {
           moves.push({ from: [row, col], to: [nr, nc], board: boardName });
         }
       }
     }
   }
 
-  // BAUER – natürlich, Schritt für Schritt
+  // BAUER (9×9 – alle Felder bespielbar)
   if (p === '♙' || p === '♟') {
     const nr = row + dir;
     if (nr >= 0 && nr < 9) {
@@ -535,7 +463,7 @@ function getNaturalMoves(board, row, col, boardName) {
         const startRow = isWhite ? 1 : 7;
         if (row === startRow) {
           const nr2 = row + 2 * dir;
-          if (!getPiece(board, nr2, col)) {
+          if (nr2 >= 0 && nr2 < 9 && !getPiece(board, nr2, col)) {
             moves.push({ from: [row, col], to: [nr2, col], board: boardName });
           }
         }
@@ -544,7 +472,7 @@ function getNaturalMoves(board, row, col, boardName) {
         const nc = col + dc;
         if (nc >= 0 && nc < 9) {
           const target = getPiece(board, nr, nc);
-          if (target && (target.color === enemy || target.color === 'omega')) {
+          if (target && target.color === enemy) {
             moves.push({ from: [row, col], to: [nr, nc], board: boardName });
           }
         }
@@ -552,17 +480,19 @@ function getNaturalMoves(board, row, col, boardName) {
     }
   }
 
-  // ZEN: Sanfter Board-Wechsel (immer möglich, wie ein Atemzug)
-  if (moves.length === 0 || Math.random() < 0.15) {
+  // ZEN: Board-Wechsel (Atemzug)
+  if (moves.length === 0 || Math.random() < 0.12) {
     const available = BOARD_NAMES.filter(b => b !== boardName);
-    const targetBoard = available[Math.floor(Math.random() * available.length)];
-    moves.push({
-      from: [row, col],
-      to: [row, col],
-      board: targetBoard,
-      isTeleport: true,
-      isZen: true
-    });
+    if (available.length) {
+      const targetBoard = available[Math.floor(Math.random() * available.length)];
+      moves.push({
+        from: [row, col],
+        to: [row, col],
+        board: targetBoard,
+        isTeleport: true,
+        isZen: true
+      });
+    }
   }
 
   return moves;
@@ -582,13 +512,12 @@ function executeMove(move) {
 
   if (target && target.piece) {
     manaGain += PIECE_VALUES[target.piece] || 0;
-    if (target.color === 'omega') manaGain *= 2;
   }
 
   board[toRow][toCol] = piece;
   board[fromRow][fromCol] = { piece: null, color: null, type: null };
 
-  // Bauern-Umwandlung
+  // Bauern-Umwandlung (9×9)
   if (piece.piece === '♙' && toRow === 0) {
     board[toRow][toCol] = { piece: '♕', color: 'white', type: '♕' };
     manaGain += 5;
@@ -604,46 +533,42 @@ function executeMove(move) {
   moveCount++;
   turn = turn === 'white' ? 'black' : 'white';
   lastMove = move;
-  moveHistory.push({ move, mana: manaGain, turn: turn });
 
   return true;
 }
 
-// ===== KI – SANFT, NATÜRLICH =====
+// ===== KI =====
 function aiMove() {
   const board = getBoard(currentBoard);
   const pieces = [];
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
       const p = getPiece(board, r, c);
-      if (p && p.piece && p.color === turn && p.color !== 'omega') {
-        pieces.push({ row: r, col: c, piece: p });
+      if (p && p.piece && p.color === turn) {
+        pieces.push({ row: r, col: c });
       }
     }
   }
+
   let allMoves = [];
   for (const p of pieces) {
-    const moves = getNaturalMoves(board, p.row, p.col, currentBoard);
+    const moves = getMoves(board, p.row, p.col, currentBoard);
     for (const m of moves) allMoves.push(m);
   }
+
   if (allMoves.length === 0) return null;
 
-  // ZEN: Nicht den besten, sondern den schönsten Zug wählen
-  // Manchmal schlagen, manchmal einfach ziehen, manchmal wechseln
   const weighted = allMoves.map(m => {
-    const board2 = getBoard(m.board);
-    const target = getPiece(board2, m.to[0], m.to[1]);
-    let weight = 1;
-    if (target && target.piece) weight += PIECE_VALUES[target.piece] || 0;
-    if (m.isTeleport) weight += 2;
-    // Zufällige Variation – jeder Zug ist anders
-    weight *= (0.7 + Math.random() * 0.6);
-    return { move: m, weight };
+    const target = getPiece(getBoard(m.board), m.to[0], m.to[1]);
+    let w = 1;
+    if (target && target.piece) w += PIECE_VALUES[target.piece] || 0;
+    if (m.isTeleport) w += 2;
+    w *= (0.6 + Math.random() * 0.8);
+    return { move: m, weight: w };
   });
 
   weighted.sort((a, b) => b.weight - a.weight);
-  // Nicht immer den besten nehmen – ZEN: manchmal den zweit- oder drittbesten
-  const pick = Math.random() < 0.3 ? Math.min(2, weighted.length - 1) : 0;
+  const pick = Math.random() < 0.25 ? Math.min(2, weighted.length - 1) : 0;
   return weighted[pick].move;
 }
 
@@ -660,15 +585,12 @@ function renderBoard(boardName) {
     for (let c = 0; c < 9; c++) {
       const cell = document.createElement('div');
       const isLight = (r + c) % 2 === 0;
-      const isOmega = (c === 8 || r === 8);
-      cell.className = `cell ${isLight ? 'light' : 'dark'} ${isOmega ? 'omega' : ''}`;
+      cell.className = `cell ${isLight ? 'light' : 'dark'}`;
 
       const piece = getPiece(board, r, c);
       if (piece && piece.piece) {
         const span = document.createElement('span');
-        const isWhite = piece.color === 'white';
-        const isOmegaPiece = piece.color === 'omega';
-        span.className = `piece ${isWhite ? 'white' : isOmegaPiece ? 'omega' : 'black'}`;
+        span.className = `piece ${piece.color}`;
         span.textContent = piece.piece;
         if (lastMove && lastMove.to[0] === r && lastMove.to[1] === c) {
           span.classList.add('move-in');
@@ -680,7 +602,9 @@ function renderBoard(boardName) {
         cell.classList.add('selected');
       }
 
-      cell.dataset.row = r; cell.dataset.col = c; cell.dataset.board = boardName;
+      cell.dataset.row = r;
+      cell.dataset.col = c;
+      cell.dataset.board = boardName;
       cell.addEventListener('click', () => onCellClick(r, c, boardName));
       container.appendChild(cell);
     }
@@ -688,7 +612,9 @@ function renderBoard(boardName) {
 }
 
 function renderAll() {
-  renderBoard('GA'); renderBoard('meKI'); renderBoard('MIE');
+  renderBoard('GA');
+  renderBoard('meKI');
+  renderBoard('MIE');
 
   document.querySelectorAll('.board-container').forEach(el => el.classList.remove('active'));
   const map = { 'GA': 'board1-container', 'meKI': 'board2-container', 'MIE': 'board3-container' };
@@ -697,8 +623,7 @@ function renderAll() {
 
   document.getElementById('turn-indicator').textContent = turn === 'white' ? 'Weiß' : 'Schwarz';
   document.getElementById('move-count').textContent = moveCount;
-  document.getElementById('score-indicator').textContent = mana;
-  document.getElementById('mana-indicator').textContent = mana > 50 ? '∞' : mana;
+  document.getElementById('mana-indicator').textContent = mana;
 }
 
 // ===== CLICK =====
@@ -708,18 +633,19 @@ function onCellClick(row, col, boardName) {
   const piece = getPiece(board, row, col);
 
   if (!selected) {
-    if (piece && piece.color === turn && piece.color !== 'omega') {
+    if (piece && piece.color === turn) {
       selected = [row, col];
       renderAll();
     }
     return;
   }
 
-  const moves = getNaturalMoves(board, selected[0], selected[1], boardName);
+  const moves = getMoves(board, selected[0], selected[1], boardName);
   let validMove = null;
   for (const move of moves) {
     if (move.to[0] === row && move.to[1] === col && move.board === boardName) {
-      validMove = move; break;
+      validMove = move;
+      break;
     }
   }
 
@@ -731,7 +657,7 @@ function onCellClick(row, col, boardName) {
       setTimeout(() => {
         const move = aiMove();
         if (move) { executeMove(move); renderAll(); }
-      }, 500);
+      }, 400);
     }
   } else {
     selected = null;
@@ -751,16 +677,20 @@ function startAuto() {
       currentBoard = BOARD_NAMES[(idx + 1) % 3];
       renderAll();
     }
-  }, 800);
+  }, 700);
 }
 function stopAuto() { if (autoInterval) { clearInterval(autoInterval); autoInterval = null; } }
 
 // ===== RESET =====
 function resetGame() {
   stopAuto();
-  boards = { GA: createBoard9x9('GA'), meKI: createBoard9x9('meKI'), MIE: createBoard9x9('MIE') };
-  currentBoard = 'meKI'; selected = null; turn = 'white'; moveCount = 0;
-  mana = 0; lastMove = null; moveHistory = [];
+  boards = { GA: createBoard9x9(), meKI: createBoard9x9(), MIE: createBoard9x9() };
+  currentBoard = 'meKI';
+  selected = null;
+  turn = 'white';
+  moveCount = 0;
+  mana = 0;
+  lastMove = null;
   renderAll();
   if (autoMode) startAuto();
 }
@@ -770,12 +700,8 @@ function toggleZen() {
   zenMode = !zenMode;
   document.getElementById('btnZen').classList.toggle('active');
   document.getElementById('btnZen').textContent = zenMode ? '🧘 ZEN·ON' : '🧘 ZEN';
-  if (zenMode) {
-    document.body.style.transition = 'all 3s ease';
-    document.body.style.background = '#0a1a1a';
-  } else {
-    document.body.style.background = '';
-  }
+  document.body.style.transition = 'all 3s ease';
+  document.body.style.background = zenMode ? '#0a1a1a' : '';
 }
 
 // ===== FPS =====
@@ -783,10 +709,7 @@ let frameCount = 0, fpsTime = Date.now();
 function updateFPS() {
   frameCount++;
   const now = Date.now();
-  if (now - fpsTime > 1000) {
-    document.getElementById('fps').textContent = frameCount;
-    frameCount = 0; fpsTime = now;
-  }
+  if (now - fpsTime > 1000) { frameCount = 0; fpsTime = now; }
   requestAnimationFrame(updateFPS);
 }
 
@@ -796,19 +719,24 @@ function init() {
 
   document.getElementById('btnReset').addEventListener('click', resetGame);
   document.getElementById('btnAuto').addEventListener('click', function() {
-    autoMode = !autoMode; this.classList.toggle('active');
+    autoMode = !autoMode;
+    this.classList.toggle('active');
     this.textContent = autoMode ? '▶ FLOW' : '⏸ PAUSE';
-    if (autoMode) startAuto(); else stopAuto();
+    if (autoMode) startAuto();
+    else stopAuto();
   });
   document.getElementById('btnZen').addEventListener('click', toggleZen);
   document.getElementById('btnBoard1').addEventListener('click', function() {
-    currentBoard = 'GA'; renderAll();
+    currentBoard = 'GA';
+    renderAll();
   });
   document.getElementById('btnBoard2').addEventListener('click', function() {
-    currentBoard = 'meKI'; renderAll();
+    currentBoard = 'meKI';
+    renderAll();
   });
   document.getElementById('btnBoard3').addEventListener('click', function() {
-    currentBoard = 'MIE'; renderAll();
+    currentBoard = 'MIE';
+    renderAll();
   });
 
   document.addEventListener('keydown', (e) => {
@@ -823,8 +751,8 @@ function init() {
   if (autoMode) startAuto();
   updateFPS();
 
-  console.log('🧘 ZEN·AU·RA·MANA geladen');
-  console.log('🌿 9×9 · 3 Bretter · natürliche Moves · immer anders');
+  console.log('🧘 ZEN·AU·RA·MANA · 9×9 · VOLL BESPIELBAR');
+  console.log('🌿 81 Felder · Bauern & Damen auf allen Reihen');
   console.log('⌨️  r=Reset  Space=Flow  1/2/3=Board  z=Zen');
 }
 
